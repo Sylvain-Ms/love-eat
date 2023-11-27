@@ -10,9 +10,89 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_161354) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_27_163509) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "user_liked_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_conversations_on_user_id"
+    t.index ["user_liked_id"], name: "index_conversations_on_user_liked_id"
+  end
+
+  create_table "foodmood_restaurants", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.bigint "foodmood_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["foodmood_id"], name: "index_foodmood_restaurants_on_foodmood_id"
+    t.index ["restaurant_id"], name: "index_foodmood_restaurants_on_restaurant_id"
+  end
+
+  create_table "foodmoods", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_foodmoods_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "user_liked_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["user_liked_id"], name: "index_likes_on_user_liked_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone_number"
+    t.string "category"
+    t.string "menu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "restaurant_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "hour"
+    t.bigint "restaurant_id", null: false
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.bigint "user_liked_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_suggestions_on_restaurant_id"
+    t.index ["user_id"], name: "index_suggestions_on_user_id"
+    t.index ["user_liked_id"], name: "index_suggestions_on_user_liked_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +102,28 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_161354) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.text "description"
+    t.string "price"
+    t.integer "dietdistance"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "conversations", "users"
+  add_foreign_key "conversations", "users", column: "user_liked_id"
+  add_foreign_key "foodmood_restaurants", "foodmoods"
+  add_foreign_key "foodmood_restaurants", "restaurants"
+  add_foreign_key "foodmoods", "users"
+  add_foreign_key "likes", "users"
+  add_foreign_key "likes", "users", column: "user_liked_id"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "restaurants"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "suggestions", "restaurants"
+  add_foreign_key "suggestions", "users"
+  add_foreign_key "suggestions", "users", column: "user_liked_id"
 end
