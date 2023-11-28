@@ -1,9 +1,9 @@
 <H1>Voici la liste de nos restaurants</H1>
 
-<% @restaurants.each do |r| %>
-  <%= r.name %>
-  <%= r.address %>
-  <%= r.phone_number %>
-  <%= r.category %>
-  <%= r.menu %>
+<% @restaurants.each do |restaurant| %>
+  <%= restaurant.name %>
+  <%= restaurant.address %>
+  <%= restaurant.phone_number %>
+  <%= restaurant.category %>
+  <%= restaurant.menu %>
 <% end %>
