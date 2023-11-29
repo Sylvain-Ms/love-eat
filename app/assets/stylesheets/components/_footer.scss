@@ -1,0 +1,34 @@
+.icones {
+  list-style-type: none;
+}
+.foot li {
+  display: inline-block;
+  text-align: center;
+  margin: 0 2%;
+  width: 100%;
+}
+
+.foot {
+  background-color: #F7EDE2;
+  margin-bottom: 0%;
+  position: fixed;
+  height: 65px;
+  width: 100%;
+
+  ul {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.position-fixed-bottom{
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  bottom: 0;
+  display: inline-block;
+
+}
