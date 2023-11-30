@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   root to: "pages#home"
+
 
   namespace :users do
     resources :foodmoods, only: [:index, :create]
   end
   resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :update, :edit]
+  # get "users/:id/edit", to: "users#edit"
+
   resources :restaurants, only: [:index, :show]
+  resources :conversations do
+    resources :messages, only: [:new, :create]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
