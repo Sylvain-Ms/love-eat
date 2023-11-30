@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index, :update, :edit]
   # get "users/:id/edit", to: "users#edit"
   resources :restaurants, only: [:index, :show]
-
-  resources :messages
+  resources :conversations do
+    resources :messages, only: [:new, :create]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
