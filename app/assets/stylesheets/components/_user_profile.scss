@@ -1,0 +1,49 @@
+.user-profile-card {
+  background-image: url(https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  height: 665px;
+  width: 90%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin: auto;
+  display: block;
+}
+
+.user-info {
+  background-color: rgba($color: #F5CAC3, $alpha: 0.6);
+  padding: 15px;
+  border-radius: 4px;
+  width: 95%;
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+  position: absolute;
+  bottom: 0;
+}
+
+.user-info h2 {
+  font-family: Nunito;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+}
+
+.user-info p {
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  text-align: right;
+}
+
+.like-dislike-buttons {
+  width: 50%;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  display: flex;
+  justify-content: space-around;
+  transform: translateX(-50%);
+}
