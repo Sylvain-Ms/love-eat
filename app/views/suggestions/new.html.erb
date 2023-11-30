@@ -1,0 +1,7 @@
+<div>
+  <%= simple_form_for [@restaurant, @suggestion] do |f| %>
+    <%= f.input :date, as: :string, input_html: { data: { controller: 'flatpickr' } } %>
+    <%= f.input :hour, as: :string, input_html: { data: { controller: 'timepickr' } } %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

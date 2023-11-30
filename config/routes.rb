@@ -4,13 +4,12 @@ Rails.application.routes.draw do
   }
   root to: "pages#home"
 
-
   namespace :users do
     resources :foodmoods, only: [:index, :create]
   end
   
   resources :restaurants, only: [:index, :show] do
-    resources :suggestions, only: [:show]
+    resources :suggestions, only: [:show, :new, :create]
   end
   
   resources :users, only: [:show, :index, :update, :edit]
