@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
-
   def show
+    @restaurants = Restaurant.where(category: current_user.foodmoods.map(&:name))
   end
 
   def new
@@ -15,7 +15,7 @@ class SuggestionsController < ApplicationController
     @suggestion.restaurant = @restaurant
 
     if @suggestion.save!
-      redirect_to "root_path"
+      redirect_to root_path
     else
       render :new
     end
@@ -26,5 +26,4 @@ class SuggestionsController < ApplicationController
   def suggestion_params
     params.require(:suggestion).permit(:date, :hour)
   end
-
 end
