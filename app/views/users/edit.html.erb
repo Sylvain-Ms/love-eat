@@ -1,0 +1,11 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :distance %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :birthdate, as: :date %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :diet %>
+  <%= f.input :password %>
+  <%= f.button :submit %>
+<% end %>
