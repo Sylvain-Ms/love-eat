@@ -1,0 +1,21 @@
+.container_chat{
+  height: 80vh;
+  display: flex;
+  align-items: end;
+}
+
+.input_content {
+  margin: 0 auto;
+  width: 100%;
+}
+.form_chat{
+  width: 90%;
+  position: relative;
+  margin: 0 auto;
+}
+.button-nul{
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  rotate: 180deg;
+}

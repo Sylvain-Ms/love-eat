@@ -1,0 +1,33 @@
+.profile_match {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  margin: 8px;
+}
+
+img {
+  width: 100px;
+  padding: 15px;
+  margin: none;
+  padding-left: 0px;
+}
+
+.tag_list {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+
+
+  div {
+   background-color: #F6BD60;
+  //  border-radius: 10px;
+   text-align: center;
+  }
+
+  p {
+    margin: 5px;
+    font-weight: bold;
+    color:white
+  }
+}
