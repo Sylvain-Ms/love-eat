@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
+  namespace :users do
+    resources :foodmoods, only: [:index, :create]
+  end
   resources :users, only: [:show, :index]
   resources :restaurants, only: [:index, :show]
 
