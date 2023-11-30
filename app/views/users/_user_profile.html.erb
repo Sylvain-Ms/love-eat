@@ -1,16 +1,25 @@
 <div class="profile-container">
-  <div class="user-profile-card">
-    <div class="user-profile-picture">
-      <%# insérer photos en 393px par 523px %>
-    </div>
-    <div class="user-info">
-      <h2>User, 33 ans</h2>
-      <p>Mexicain, Japonais, Libanais - €€</p>
-    </div>
-  </div>
-  <div class="like-dislike-buttons">
-    <%# insérer boutons like et dislike %>
-    <%= image_tag "cross.svg" %>
-    <%= image_tag "heart.svg" %>
-  </div>
+  <% @users.each |user| do %>
+    <% link_to user_path(user) do %>
+      <div class="user-profile-card">
+        <div class="user-profile-picture">
+          <% if user.try(:pictures).try(:attached?) %>
+            <% user.pictures.first(1).each do |picture| %>
+              <%= cl_image_tag picture.key %>
+            <% end %>
+          <% else %>
+            <img src="https://source.unsplash.com/random/100X100/?portrait">
+          <% end %>
+        </div>
+        <div class="user-info">
+          <h2><%= user.name %> - <%= user.birthdate %></h2>
+          <p><%= user.foodmoods %> - <%= user.price %></p>
+        </div>
+      </div>
+      <div class="like-dislike-buttons"> <%# Doit-on créer un IF pour : %>
+        <%= image_tag "cross.svg" %> <%# stocker dans la DB avec un refused_user avec des << %>
+        <%= image_tag "heart.svg" %> <%# stocker dans la DB avec un user_liked avec des << %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
