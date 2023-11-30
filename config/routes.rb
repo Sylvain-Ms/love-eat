@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   resources :restaurants, only: [:index, :show] do
     resources :suggestions, only: [:show, :new, :create]
+    resources :reviews, only: [:new, :create]
   end
   
   resources :users, only: [:show, :index, :update, :edit]

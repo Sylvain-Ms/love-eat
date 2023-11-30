@@ -5,3 +5,6 @@
 <%= @restaurant.category %>
 <%= @restaurant.price %>
 <%= @restaurant.menu %>
+<% @restaurant.reviews.each do |review| %>
+  <%= review.content  %>
+<% end %>
