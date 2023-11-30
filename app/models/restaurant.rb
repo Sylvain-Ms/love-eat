@@ -6,7 +6,7 @@ class Restaurant < ApplicationRecord
 
   def self.save_csv(restaurants)
     CSV.open("#{root_path}/db/restaurants.csv", "a") do |csv|
-      csv << %w[id name price]
+      csv << %w[id name address phone_number category menu price]
       restaurants.each do |restaurant|
         csv << [restaurant.name, restaurant.address, restaurant.phone_number, restaurant.category, restaurant.menu, restaurant.price]
       end
