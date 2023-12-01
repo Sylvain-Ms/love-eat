@@ -4,21 +4,26 @@
   border-radius: 16px;
   display: block;
   block-size: fit-content;
-  min-width: 50%;
+  width: fit-content;
   padding: 10px;
-  max-width: 50%;
   text-align: center;
   margin: 20px;
 }
+
+.sender-position {
+  display: flex;
+  justify-content: end;
+}
 .sender{
-  margin: 20px 20px 20px calc(50vw - 20px);
+  margin: 10px 20px;
   background-color: #F28482;
 }
 
 
 .message-container {
   width: -webkit-fill-available;
-  height: -webkit-fill-available;
+  height: 70vh;
+  margin-bottom: 10px;
   background-color: #fff;
   border-radius: 10px;
   overflow-y: scroll;
