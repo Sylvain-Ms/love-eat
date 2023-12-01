@@ -3,6 +3,12 @@
 
 
 .container-for-body {
-  height: 100vh;
-  overflow: scroll;
+  max-height: 80vh;
+  min-height: 80vh;
+}
+
+.title_h2 {
+  color: #84A59D;
+  text-align: center;
+  font-size: bold;
 }

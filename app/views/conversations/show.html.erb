@@ -1,8 +1,8 @@
-<%= simple_form_for [@conversation, @message] do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.button :submit %>
-<% end %>
-
-<% @messages.each do |message| %>
-<p><%= message.content %></p>
-<% end %>
+<div>
+  <div class="message-container">
+    <% @messages.each do |message| %>
+      <%= render "shared/chat_bubble", message: message %>
+    <% end %>
+  </div>
+  <%= render "shared/chat_bar", conversation: @conversation, message: @message %>
+</div>
