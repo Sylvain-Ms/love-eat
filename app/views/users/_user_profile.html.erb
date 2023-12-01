@@ -1,6 +1,6 @@
 <div class="profile-container">
-  <% @users.each |user| do %>
-    <% link_to user_path(user) do %>
+  <% users.each do |user| %>
+    <%# link_to user_path(user) do %>
       <div class="user-profile-card">
         <div class="user-profile-picture">
           <% if user.try(:pictures).try(:attached?) %>
@@ -8,18 +8,18 @@
               <%= cl_image_tag picture.key %>
             <% end %>
           <% else %>
-            <img src="https://source.unsplash.com/random/100X100/?portrait">
+            <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= user.id %>" style="height: 100%; width: 100%;">
           <% end %>
         </div>
         <div class="user-info">
-          <h2><%= user.name %> - <%= user.birthdate %></h2>
-          <p><%= user.foodmoods %> - <%= user.price %></p>
+          <h2><%= user.first_name %></h2>
+          <p><%= user.foodmoods.map(&:name).join(', ') %></p>
         </div>
       </div>
       <div class="like-dislike-buttons"> <%# Doit-on créer un IF pour : %>
         <%= image_tag "cross.svg" %> <%# stocker dans la DB avec un refused_user avec des << %>
         <%= image_tag "heart.svg" %> <%# stocker dans la DB avec un user_liked avec des << %>
       </div>
-    <% end %>
+    <%# end %>
   <% end %>
 </div>

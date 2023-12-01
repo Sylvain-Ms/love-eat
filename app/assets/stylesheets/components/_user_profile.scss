@@ -1,32 +1,33 @@
 .user-profile-card {
-  background-image: url(picture);
   height: 665px;
   width: 90%;
   background-position: center;
   background-size: cover;
-  position: relative;
+  position: absolute;
   margin: auto;
   display: block;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .user-info {
-  background-color: rgba($color: #F5CAC3, $alpha: 0.6);
+  background-color: rgba($color: #F7EDE2, $alpha: 0.6);
   padding: 15px;
   border-radius: 4px;
-  width: 95%;
+  width: 90%;
   font-family: Nunito;
   font-size: 16px;
   font-weight: bold;
-  margin: 10px;
+  margin: 0px 10px 16px 10px;
   position: absolute;
-  bottom: 0;
+  bottom: 67px;
 }
 
 .user-info h2 {
   font-family: Nunito;
   font-size: 24px;
   font-weight: bold;
-  color: white;
+  color: black;
   text-align: left;
 }
 
@@ -34,7 +35,7 @@
   font-family: Nunito;
   font-size: 16px;
   font-weight: bold;
-  color: black;
+  color: #84A59D;
   text-align: right;
 }
 
