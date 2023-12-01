@@ -3,7 +3,7 @@
   <h2><%= @user.first_name %></h2>
   <%= @user.birthdate %>
   <%= @user.description %>
-  <%= @user.foodmood %>
+  <%= @user.foodmoods.map(&:name) %>
   <%= @user.price %>
   <%= @user.diet %>
   <%= @user.distance %>
