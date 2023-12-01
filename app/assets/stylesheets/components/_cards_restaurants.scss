@@ -38,3 +38,12 @@
   border: 4px solid #84A59D;
   opacity: 0.9 !important;
 }
+
+.btn_fix {
+  display: block;
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}

@@ -1,6 +1,9 @@
 
 <h2 class='title_h2'>Liste des restaurants</h2>
 
-<% @restaurants.each do |restaurant| %>
-  <%= render "shared/cards_restaurants", restaurant: restaurant %>
-<% end %>
+<div class="block_card_scroll">
+  <% @restaurants.each do |restaurant| %>
+    <%= render "shared/cards_restaurants", restaurant: restaurant %>
+  <% end %>
+</div>
+<button class="btn_fix">valider</button>
