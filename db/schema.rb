@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_145717) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_01_164220) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,6 +96,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_145717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "price"
+    t.string "hour"
+    t.string "url"
+    t.text "descripton"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -134,10 +137,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_145717) do
     t.string "first_name"
     t.string "last_name"
     t.text "description"
-    t.string "price"
     t.datetime "birthdate"
     t.string "diet"
     t.integer "distance"
+    t.string "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
