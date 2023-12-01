@@ -7,16 +7,16 @@ Rails.application.routes.draw do
   namespace :users do
     resources :foodmoods, only: [:index, :create]
   end
-  
+
   resources :restaurants, only: [:index, :show] do
     resources :suggestions, only: [:show, :new, :create]
     resources :reviews, only: [:new, :create]
   end
-  
+
   resources :users, only: [:show, :index, :update, :edit]
   # get "users/:id/edit", to: "users#edit"
 
-  resources :conversations do
+  resources :conversations, only: [:index] do
     resources :messages, only: [:new, :create]
   end
 

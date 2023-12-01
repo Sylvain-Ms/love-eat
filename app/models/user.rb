@@ -1,3 +1,5 @@
+require 'date'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -15,4 +17,10 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :password, :birthdate, :price, :distance, presence: true
   validates :first_name, :last_name, uniqueness: { case_sensitive: false }
   validates :email, uniqueness: true
+
+  def age
+    today = Date.today
+    birthdate = self.birthdate
+    return (today - birthdate.to_date).to_i / 365
+  end
 end
