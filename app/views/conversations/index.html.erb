@@ -1,0 +1,5 @@
+<h2> Nouveaux Matchs </h2>
+
+<% @matchs.each do |match| %>
+  <%= render "shared/profile_match", match: match %>
+<% end %>
