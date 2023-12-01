@@ -1,6 +1,8 @@
 <div>
-  <% @messages.each do |message| %>
-    <%= render "shared/chat_bubble" %>
-  <% end %>
+  <div class="message-container">
+    <% @messages.each do |message| %>
+      <%= render "shared/chat_bubble", message: message %>
+    <% end %>
+  </div>
   <%= render "shared/chat_bar", conversation: @conversation, message: @message %>
 </div>
