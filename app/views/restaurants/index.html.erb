@@ -1,8 +1,5 @@
-<h1>Voici la liste de nos restaurants</h1>
+<h2 class='title_h2'>Liste des restaurants</h2>
 
 <% @restaurants.each do |restaurant| %>
-  <%= restaurant.name %>
-  <%= restaurant.address %>
-  <%= restaurant.category %>
-  <%= restaurant.price %>
+  <%= render "shared/cards_restaurants", restaurant: restaurant %>
 <% end %>
