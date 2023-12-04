@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="food-card"
 export default class extends Controller {
-  static targets = ["card", "/"]
+  static targets = ["card"]
 
   connect() {
     this.list = []
