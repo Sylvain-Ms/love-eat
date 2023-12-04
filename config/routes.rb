@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index, :update, :edit]
   # get "users/:id/edit", to: "users#edit"
 
-  resources :conversations, only: [:index] do
+  get "/exist", to: "conversations#exist"
+  resources :conversations, only: [:index, :create, :show] do
     resources :messages, only: [:new, :create]
   end
 
