@@ -1,9 +1,15 @@
 <div class="header2">
   <div class=container>
-    <%= image_tag "arrow.svg" %>
+    <%= link_to root_path do %>
+      <%= image_tag "arrow.svg" %>
+    <% end %>
     <div class="profile_pic">
-      <%= image_tag "profile_picture.svg", id: "picture" %>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag "profile_picture.svg", id: "picture" %>
+      <% end %>
     </div>
-    <%= image_tag "settings.svg" %>
+    <%= link_to edit_user_path(current_user) do %>
+      <%= image_tag "settings.svg" %>
+    <% end %>
   </div>
 </div>

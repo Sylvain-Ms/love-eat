@@ -1,9 +1,9 @@
 <div class="container">
   <%# photos %>
   <h2><%= @user.first_name %></h2>
-  <%= @user.birthdate %>
+  <%= @user.age %>
   <%= @user.description %>
-  <%= @user.foodmood %>
+  <%= @user.foodmoods.map(&:name) %>
   <%= @user.genre %>
   <%= @user.diet %>
   <%= @user.distance %>
