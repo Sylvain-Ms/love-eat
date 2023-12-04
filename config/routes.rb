@@ -7,18 +7,25 @@ Rails.application.routes.draw do
   namespace :users do
     resources :foodmoods, only: [:index, :create]
   end
-  
+
   resources :restaurants, only: [:index, :show] do
     resources :suggestions, only: [:show, :new, :create]
     resources :reviews, only: [:new, :create]
   end
-  
+
+  namespace :foodmoods do
+    resources :restaurants, only: [:index, :create, :new, :update]
+  end
+
   resources :users, only: [:show, :index, :update, :edit]
   # get "users/:id/edit", to: "users#edit"
 
-  resources :conversations do
+  get "/exist", to: "conversations#exist"
+  resources :conversations, only: [:index, :create, :show] do
     resources :messages, only: [:new, :create]
   end
+
+  resources :likes, only: [:create]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

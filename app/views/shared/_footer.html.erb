@@ -3,11 +3,13 @@
     <li class="icones"><%= link_to root_path do %>
     <%= image_tag "swipe.png", id:"logo" %>
     <% end %></li>
-    <li class="icones"><%= link_to root_path do %>
-    <%= image_tag "talk.png", id:"logo" %>
-    <% end %></li>
-    <li class="icones"><%= link_to root_path do %>
-    <%= image_tag "find.png", id:"logo" %>
-    <% end %></li>
+    <% if user_signed_in? %>
+      <li class="icones"><%= link_to conversations_path do %>
+      <%= image_tag "talk.png", id:"logo" %>
+      <% end %></li>
+      <li class="icones"><%= link_to edit_user_path(current_user) do %>
+      <%= image_tag "find.png", id:"logo" %>
+      <% end %></li>
+    <% end %>
   </ul>
 </div>
