@@ -6,6 +6,7 @@ export default class extends Controller {
 
   connect() {
     this.list = []
+    this.token = document.querySelector('meta[name=csrf-token]').content
   }
 
   select(event) {
@@ -22,14 +23,27 @@ export default class extends Controller {
       // le rajouter
       this.list.push(event.currentTarget.id)
     }
-    console.log(this.list);
   }
 
   submit(e) {
-    console.log(e)
-  }
+      fetch('/foodmoods/restaurants', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          'restaurant_ids': this.list,
+          'foodmood': { 'name': "japanese" },
+          'authenticity_token': this.token
+        })
+       })
+        .then(response => response.json())
+        .then((data) => console.log(data))
+}
 
-  prolonge(e) {
-    e.currentTarget.previousElementSibling.click()
-  }
+prolonge(e) {
+  e.currentTarget.previousElementSibling.click()
+}
+
+
 }

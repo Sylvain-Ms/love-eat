@@ -1,20 +1,15 @@
 class Foodmoods::RestaurantsController < ApplicationController
-
   def index
-    @foodmoods = Foodmood.all
-  end
-
-  def new
-    @foodmood = Foodmood.new
+    
   end
 
   def create
     @foodmood = Foodmood.new(foodmood_params)
     @foodmood.user = current_user
-    @foodmood.restaurants = @restaurant.find(params[:restaurant_ids])
+    @foodmood.restaurants = Restaurant.find(params[:restaurant_ids])
 
     if @foodmood.save!
-      redirect_to root_path
+      render json: {status: :ok, foodmood: @foodmood}
     else
       render :new, notice: 'Choose a Foodmood 🍴'
     end
