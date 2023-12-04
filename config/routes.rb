@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
+  namespace :foodmoods do
+    resources :restaurants, only: [:index, :create, :new, :update]
+  end
+
   resources :users, only: [:show, :index, :update, :edit]
   # get "users/:id/edit", to: "users#edit"
 
