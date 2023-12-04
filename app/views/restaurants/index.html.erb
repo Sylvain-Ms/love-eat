@@ -1,9 +1,12 @@
 
 <h2 class='title_h2'>Liste des restaurants</h2>
 
-<div class="block_card_scroll">
-  <% @restaurants.each do |restaurant| %>
-    <%= render "shared/cards_restaurants", restaurant: restaurant %>
-  <% end %>
+<div class="container">
+  <div class="block_card_scroll">
+    <% @restaurants.each do |restaurant| %>
+      <%= render "shared/cards_restaurants", restaurant: restaurant %>
+    <% end %>
+  </div>
+
+  <div class="btn_fix"><%= image_tag "check_circle.svg" %></div>
 </div>
-<button class="btn_fix">valider</button>

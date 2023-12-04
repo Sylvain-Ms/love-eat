@@ -45,5 +45,16 @@
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 5px;
 }
+
+.container {
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
+}
+
+.block_card_scroll {
+  overflow-y: auto;
+  max-height: calc(100% - 110px);
+  margin-bottom: 50px;
+  }
