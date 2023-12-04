@@ -17,14 +17,17 @@ export default class extends Controller {
 
   like(event) {
     console.log(event)
-    /* notice: "You have liked this user 💛" */
-    /* mettre le user_liked dans la DB */
-      /* fetch(``)
-        .then(response => response.json())
-        .then((data) => {
-      console.log(data) */
-    /* ne plus montrer le user_like dans User.all ? */
-          /* this.element.remove() */
+    fetch(`/likes`, {
+      method: "POST",
+      body: JSON.stringify({
+        'user_liked_id': this.userLikedIdValue
+      }),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then((data) => { console.log(data) })
   }
 
   refuse(event) {
