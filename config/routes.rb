@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   namespace :foodmoods do
-    resources :restaurants, only: [:index, :create, :new]
+    resources :restaurants, only: [:index, :create, :new, :update]
   end
 
   resources :users, only: [:show, :index, :update, :edit]
