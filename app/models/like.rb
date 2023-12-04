@@ -8,7 +8,7 @@ class Like < ApplicationRecord
       WHERE l.user_id = ul.user_liked_id AND l.user_id = #{user.id}")
   end
 
-  def match?(user_liked)
-    self.user_liked == user_liked && user_liked.likes.find(user_liked: current_user)
+  def match?(current_user, user_liked)
+    self.user_liked == user_liked && user_liked.likes.find_by(user_liked: current_user)
   end
 end

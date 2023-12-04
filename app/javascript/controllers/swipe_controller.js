@@ -8,6 +8,7 @@ export default class extends Controller {
   }
   connect() {
     console.log(this.userLikedIdValue)
+    this.token = document.querySelector('meta[name=csrf-token]').content
   }
 
   swipe(event) {
@@ -20,7 +21,8 @@ export default class extends Controller {
     fetch(`/likes`, {
       method: "POST",
       body: JSON.stringify({
-        'user_liked_id': this.userLikedIdValue
+        'user_liked_id': this.userLikedIdValue,
+        "authenticity_token": this.token
       }),
       headers: {
         "Content-type": "application/json"
