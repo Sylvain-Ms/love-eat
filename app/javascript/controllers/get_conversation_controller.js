@@ -22,4 +22,7 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => { window.location.href = `conversations/${data["id"]}` })
   }
+
+  swipeLeft(e) {
+  }
 }

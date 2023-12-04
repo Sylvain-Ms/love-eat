@@ -33,6 +33,11 @@ class ConversationsController < ApplicationController
     end
   end
 
+  def destroy
+    @conversation.destroy!
+    redirect_to conversations_path, notice: "Your match has been delete"
+  end
+
   private
 
   def params_conversation

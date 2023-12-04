@@ -1,4 +1,4 @@
-<div class="profile_match" data-controller="get-conversation" data-get-conversation-target="card" data-action="click->get-conversation#show" data-get-conversation-user-liked-id-value="<%= match.user_liked_id %>">
+<div class="profile_match" data-controller="get-conversation" data-get-conversation-target="card" data-action="click->get-conversation#show touchend->get-conversation#swipeLeft" data-action="" data-get-conversation-user-liked-id-value="<%= match.user_liked_id %>">
   <%= image_tag "profile_picture.svg", id: "picture" %>
   <div class="profile_match_container">
     <h2><strong><%= match.user_liked.first_name %>, <%= match.user_liked.age %>ans</strong></h2>
