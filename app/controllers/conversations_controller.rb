@@ -26,7 +26,7 @@ class ConversationsController < ApplicationController
     if @conversation
       render json: { id: @conversation.id }
     else
-      @conversation = Conversation.new(params_conversation)
+      @conversation = Conversation.new(user_liked: user_liked)
       @conversation.user = current_user
       @conversation.save
       render json: { id: @conversation.id }
