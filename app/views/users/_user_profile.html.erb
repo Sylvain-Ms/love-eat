@@ -1,27 +1,22 @@
-<div class="profile-container">
-  <% users.each do |user| %>
+
     <%# link_to user_path(user) do %>
-    <div data-controller="swipe" data-swipe-user-liked-id-value="<%= user.id %>">
-      <div class="user-profile-card" >
-        <div class="user-profile-picture">
-          <% if user.try(:pictures).try(:attached?) %>
-            <% user.pictures.first(1).each do |picture| %>
-              <%= cl_image_tag user.picture.key %>
-            <% end %>
-          <% else %>
-            <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= user.id %>" style="height: 100%; width: 100%;">
-          <% end %>
-        </div>
-        <div class="user-info">
-          <h2><%= user.first_name %></h2>
-          <p><%= user.foodmoods.map(&:name).join(', ') %></p>
-        </div>
-      </div>
-      <div class="like-refuse-buttons"> <%# Doit-on créer un IF pour : %>
-        <%= image_tag "cross.svg", data: {action: "click->swipe#refuse", swipe_target: "refuseButton" } %> <%# Créer le controller like_button_controller.js %>
-        <%= image_tag "heart.svg", data: { action: "click->swipe#like", swipe_target: "likeButton" } %> <%# Créer le controller refuse_button_controller.js %>
-      </div>
+<div data-controller="swipe" data-swipe-user-liked-id-value="<%= user.id %>">
+  <div class="user-profile-card" >
+    <div class="user-profile-picture">
+      <% if user.pictures.attached? %>
+        <%= cl_image_tag user.pictures.first.key , style: "height: 766px; width: 100%; object-fit: cover;"%>
+      <% else %>
+        <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= user.id %>" style="height: 100%; width: 100%;">
+      <% end %>
     </div>
-    <%# end %>
-  <% end %>
+    <div class="user-info">
+      <h2><%= user.first_name %></h2>
+      <p><%= user.foodmoods.map(&:name).join(', ') %></p>
+    </div>
+  </div>
+  <div class="like-refuse-buttons"> <%# Doit-on créer un IF pour : %>
+    <%= image_tag "cross.svg", data: {action: "click->swipe#refuse", swipe_target: "refuseButton" } %> <%# Créer le controller like_button_controller.js %>
+    <%= image_tag "heart.svg", data: { action: "click->swipe#like", swipe_target: "likeButton" } %> <%# Créer le controller refuse_button_controller.js %>
+  </div>
 </div>
+    <%# end %>

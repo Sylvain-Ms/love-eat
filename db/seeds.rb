@@ -4,8 +4,8 @@
 #
 # Example:
 #
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
+#   ["Action", "Comedy", "Drama", "Horror"].each do |gender_name|
+#     Moviegender.find_or_create_by!(name: gender_name)
 #   end
 kfc=Restaurant.create(name:"kfc", address:"bordeaux", phone_number:"3516461656",category:"fastfood", menu:"poulet pas bon")
 petit_pierre=Restaurant.create(name:"Petit Pierre", address:"beziers", phone_number:"656565651",category:"gastro", menu:"tres bon")
