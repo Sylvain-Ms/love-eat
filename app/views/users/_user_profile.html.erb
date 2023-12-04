@@ -1,7 +1,8 @@
 <div class="profile-container">
   <% users.each do |user| %>
-    <%# link_to user_path(user) %>
-      <div class="user-profile-card">
+    <%# link_to user_path(user) do %>
+    <div data-controller="swipe" data-swipe-user-liked-id-value="<%= user.id %>">
+      <div class="user-profile-card" >
         <div class="user-profile-picture">
           <% if user.try(:pictures).try(:attached?) %>
             <% user.pictures.first(1).each do |picture| %>
@@ -16,10 +17,11 @@
           <p><%= user.foodmoods.map(&:name).join(', ') %></p>
         </div>
       </div>
-      <div class="like-dislike-buttons"> <%# Doit-on créer un IF pour : %>
-        <%= image_tag "cross.svg" %> <%# stocker dans la DB avec un refused_user avec des << %>
-        <%= image_tag "heart.svg" %> <%# stocker dans la DB avec un user_liked avec des << %>
+      <div class="like-refuse-buttons"> <%# Doit-on créer un IF pour : %>
+        <%= image_tag "cross.svg", data: {action: "click->swipe#refuse", swipe_target: "refuseButton" } %> <%# Créer le controller like_button_controller.js %>
+        <%= image_tag "heart.svg", data: { action: "click->swipe#like", swipe_target: "likeButton" } %> <%# Créer le controller refuse_button_controller.js %>
       </div>
+    </div>
     <%# end %>
   <% end %>
 </div>
