@@ -33,6 +33,13 @@ class ConversationsController < ApplicationController
     end
   end
 
+  def destroy
+    @like = Like.find_by(user: current_user, user_liked_id: params[:user_liked_id])
+    @like.destroy!
+
+    render json: { status: :ok }
+  end
+
   private
 
   def params_conversation
