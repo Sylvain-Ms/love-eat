@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :likes, only: [:create]
+  get "/match", to: "likes#match"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
