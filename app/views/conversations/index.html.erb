@@ -2,6 +2,4 @@
 
 <% @matchs.each do |match| %>
   <%= render "shared/profile_match", match: match %>
-  <%= render "shared/suggestion_restaurants", user_liked: match.user_liked %>
 <% end %>
-
