@@ -1,16 +1,17 @@
 
-<div class="cards_restaurants" data-controller="food-card">
-  <div class="card_restaurant_content">
-    <div
-      class="card" data-action="click->food-card#select" data-food-card-target="card"
-      style="background-image: url('https://wallpaperaccess.com/full/4326342.jpg');
-              background-position: center;
-              background-size: cover;
-              opacity: 50%">
+<div class="cards_restaurants">
+    <div class="card_restaurant_content">
+      <div
+        class="card" data-action="click->food-card#select" data-food-card-target="card"
+        id="<%= restaurant.id %>"
+        style="background-image: url('https://wallpaperaccess.com/full/4326342.jpg');
+                background-position: center;
+                background-size: cover;
+                opacity: 50%">
+      </div>
+      <h2 data-action='click->food-card#prolonge'><%= restaurant.name %></h2>
+      <div class="price">
+        <p><%= restaurant.price %></p>
+      </div>
     </div>
-    <h2><%= restaurant.name %></h2>
-    <div class="price">
-      <p><%= restaurant.price %></p>
-    </div>
-  </div>
 </div>

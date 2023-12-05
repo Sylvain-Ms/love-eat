@@ -1,13 +1,10 @@
 class PagesController < ApplicationController
-
   def home
     if user_signed_in?
-      foodmoods_id = current_user.foodmood_ids
-      @users = User.where(foodmoods: foodmoods_id)
+      foodmoods = current_user.foodmoods.map(&:name)
+      redirect_to controller: "users/foodmoods", action: :index if foodmoods.empty?
 
-      if foodmoods_id.nil?
-        redirect_to controller: "users/foodmoods", action: :index
-      end
+      @users = User.joins(:foodmoods).where(foodmoods: { name: foodmoods }).where.not(id:current_user.id ).uniq
     else
       redirect_to new_user_session_path
     end

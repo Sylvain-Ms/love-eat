@@ -1,11 +1,17 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :distance %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :birthdate, as: :date %>
-  <%= f.input :description %>
-  <%= f.input :genre %>
-  <%= f.input :diet %>
-  <%= f.input :password %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @user do |f| %>
+    <div class="block_card_scroll">
+      <%= f.input :distance, input_html: { class: "distance"} %>
+      <%= f.input :first_name, input_html: { class: "first_name"} %>
+      <%= f.input :last_name, input_html: { class: "last_name"} %>
+      <%= f.input :birthdate, as: :date, input_html: { class: "birthdate"} %>
+      <%= f.input :description, input_html: { class: "description"} %>
+      <%= f.input :gender, collection: ['Femme', 'Homme'], input_html: { class: "gender"} %>
+      <%= f.input :preferences, collection: ['Femme', 'Homme'], input_html: { class: "preferences"} %>
+      <%= f.input :diet, input_html: { class: "diet"} %>
+      <%= f.input :password, input_html: { class: "password"} %>
+      <%= f.input :pictures, as: :file, input_html: { multiple: true }, input_html: { class: "pictures"} %>
+    </div>
+    <%= f.button :submit, class: 'btn_fix' %>
+  <% end %>
+</div>

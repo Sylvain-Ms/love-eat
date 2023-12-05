@@ -1,4 +1,4 @@
-<div class="profile_match">
+<div class="profile_match" data-controller="get-conversation" data-get-conversation-target="card" data-action="touchstart->get-conversation#getData touchmove->get-conversation#animate touchend->get-conversation#swipe" data-get-conversation-user-liked-id-value="<%= current_user.id == match.user_liked_id ? match.user_id : match.user_liked_id %>">
   <%= image_tag "profile_picture.svg", id: "picture" %>
   <div class="profile_match_container">
     <h2><strong><%= match.user_liked.first_name %>, <%= match.user_liked.age %>ans</strong></h2>

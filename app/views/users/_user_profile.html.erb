@@ -1,5 +1,4 @@
-<div class="profile-container">
-  <% users.each do |user| %>
+
     <%# link_to user_path(user) do %>
     <div data-controller="swipe" data-swipe-user-liked-id-value="<%= user.id %>">
       <div class="user-profile-card" >
@@ -23,6 +22,14 @@
       </div>
       <div data-swipe-target="foodmatch" id='foodmatch'></div>
     </div>
-    <%# end %>
-  <% end %>
+    <div class="user-info">
+      <h2><%= user.first_name %></h2>
+      <p><%= user.foodmoods.map(&:name).join(', ') %></p>
+    </div>
+  </div>
+  <div class="like-refuse-buttons"> <%# Doit-on créer un IF pour : %>
+    <%= image_tag "cross.svg", data: {action: "click->swipe#refuse", swipe_target: "refuseButton" } %> <%# Créer le controller like_button_controller.js %>
+    <%= image_tag "heart.svg", data: { action: "click->swipe#like", swipe_target: "likeButton" } %> <%# Créer le controller refuse_button_controller.js %>
+  </div>
 </div>
+    <%# end %>

@@ -14,14 +14,14 @@ Rails.application.routes.draw do
   end
 
   namespace :foodmoods do
-    resources :restaurants, only: [:index, :create, :new, :update]
+    resources :restaurants, only: [:index, :create, :update]
   end
 
   resources :users, only: [:show, :index, :update, :edit]
   # get "users/:id/edit", to: "users#edit"
 
   get "/exist", to: "conversations#exist"
-  resources :conversations, only: [:index, :create, :show] do
+  resources :conversations, only: [:index, :create, :show, :destroy] do
     resources :messages, only: [:new, :create]
   end
 
