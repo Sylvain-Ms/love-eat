@@ -1,5 +1,5 @@
 class Conversation < ApplicationRecord
   belongs_to :user
   belongs_to :user_liked, class_name: "User"
-  has_many :messages
+  has_many :messages, dependent: :destroy
 end

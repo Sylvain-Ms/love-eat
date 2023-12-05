@@ -34,8 +34,10 @@ class ConversationsController < ApplicationController
   end
 
   def destroy
-    @conversation.destroy!
-    redirect_to conversations_path, notice: "Your match has been delete"
+    @like = Like.find_by(user: current_user, user_liked_id: params[:user_liked_id])
+    @like.destroy!
+
+    render json: { status: :ok }
   end
 
   private
