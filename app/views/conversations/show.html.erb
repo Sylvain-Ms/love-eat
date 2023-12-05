@@ -6,3 +6,4 @@
   </div>
   <%= render "shared/chat_bar", conversation: @conversation, message: @message %>
 </div>
+  <%= render "shared/suggestion_restaurants", user: @conversation.user, user_liked: @conversation.user_liked %>
