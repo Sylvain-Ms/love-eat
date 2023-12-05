@@ -1,6 +1,4 @@
-<%= simple_form_for [conversation, message], html: { class: 'form_chat'} do |f| %>
+<%= simple_form_for [conversation, message], html: { class: 'form_chat', data: { controller: "form-chat" }} do |f| %>
   <%= f.input :content, label: false, input_html: { class: "input_content"} %>
-  <%= button_tag type: "submit" do %>
-    <%= image_tag 'send.png', class: 'button-nul' %>
-  <% end %>
+  <%= image_tag 'send.png', class: 'button-nul', data: { action: "click->form-chat#send" } %>
 <% end %>

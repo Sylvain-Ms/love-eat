@@ -4,7 +4,7 @@
 
 .card_restaurant_content {
   height: 100px;
-  width: 350px;
+  width: 90%;
   margin: 20px auto;
   position: relative;
 
@@ -56,5 +56,6 @@
 .block_card_scroll {
   overflow-y: auto;
   max-height: calc(100% - 110px);
+  width: 100%;
   margin-bottom: 50px;
   }
