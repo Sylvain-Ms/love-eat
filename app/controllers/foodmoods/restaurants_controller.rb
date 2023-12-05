@@ -1,6 +1,9 @@
 class Foodmoods::RestaurantsController < ApplicationController
   def index
-    
+    @restaurants = Restaurant.all
+    if params[:category].present?
+      @restaurants = @restaurants.where(category: params[:category])
+    end
   end
 
   def create
