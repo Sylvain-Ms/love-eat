@@ -1,0 +1,41 @@
+.container {
+  padding: 17px;
+  padding-top: 0px;
+}
+.distance {
+  padding-left: 8px;
+}
+
+.first_name {
+  padding-left: 8px;
+}
+
+.last_name {
+  padding-left: 8px;
+}
+
+.description {
+  padding: 8px;
+}
+
+.diet {
+  padding-left: 8px;
+}
+
+.password {
+  padding-left: 8px;
+}
+
+.pictures {
+  padding-left: 8px;
+}
+
+.block_card_scroll {
+  overflow-y: auto;
+  max-height: calc(100% - 55px);
+  margin-bottom: 45px;
+}
+.btn_fix {
+  background-color: #84A59D;
+  border-radius: 10px;
+}
