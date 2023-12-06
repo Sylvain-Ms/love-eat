@@ -5,7 +5,10 @@
     <a class="active" href="#home">
      <%= image_tag "bell.svg" %>
     </a>
-    <a href="#contact">
-    <%= image_tag "settings.svg" %></a>
+    <% if user_signed_in? %>
+      <%= link_to edit_user_path(current_user) do %>
+        <%= image_tag "settings.svg" %>
+      <% end %>
+    <% end %>
   </div>
 </div>

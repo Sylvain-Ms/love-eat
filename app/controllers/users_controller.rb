@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    @user.update_without_password(user_params)
 
-    redirect_to user_path(@user)
+    redirect_to @user
   end
 
   private
@@ -25,10 +25,10 @@ class UsersController < ApplicationController
                                  :first_name,
                                  :last_name,
                                  :birthdate,
-                                 :descripton,
+                                 :description,
+                                 :preferences,
                                  :gender,
                                  :diet,
-                                 :password,
                                  pictures: [])
   end
 end
