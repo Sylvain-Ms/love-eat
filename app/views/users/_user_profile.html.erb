@@ -1,7 +1,7 @@
 
     <%# link_to user_path(user) do %>
 <div data-controller="swipe" data-swipe-user-liked-id-value="<%= user.id %>">
-  <div class="user-profile-card" >
+  <div class="user-profile-card" data-action="touchstart->swipe#getData touchmove->swipe#animate touchend->swipe#swipe">
     <div class="user-profile-picture">
       <% if user.try(:pictures).try(:attached?) %>
         <% user.pictures.first(1).each do |picture| %>

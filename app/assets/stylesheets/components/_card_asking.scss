@@ -1,0 +1,47 @@
+.les_btn {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+}
+.btn_decline {
+  background-color: darkred;
+  border-radius: 4px;
+}
+.btn_accept {
+  background-color: green;
+  border-radius: 4px;
+}
+
+.prix2 {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+}
+.info2 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 60%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  background-color: #F7EDE2;
+  margin-top: 10px;
+  justify-content: space-around;
+  padding: 5px;
+  padding-top: 5px;
+  height: -webkit-fit-content;
+  flex-direction: column;
+}
+
+.img_sug {
+  width: 100%;
+  height: 100px;
+  padding-top: 0px;
+}
+.cardTitle {
+  font-size: 18px;
+  
+}
