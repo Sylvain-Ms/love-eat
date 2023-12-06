@@ -10,11 +10,13 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.new(params_conversation)
-    @conversation.user = current_user
+    @conversation = Conversation.find_or_create_by(user_id: current_user.id, user_liked_id: params[:user_liked_id])
 
     if @conversation.save!
-      redirect_to @conversation
+      respond_to do |f|
+        f.html { redirect_to @conversation }
+        f.json { render json: { id: @conversation.id } }
+      end
     else
       render :new, notice: "Un problème est survenu... Réessayez"
     end

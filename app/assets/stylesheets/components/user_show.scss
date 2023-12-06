@@ -10,20 +10,7 @@
   transform: translateX(-50%);
 }
 
-.user-info {
-  background-color: rgba($color: #F7EDE2, $alpha: 0.6);
-  padding: 15px;
-  border-radius: 4px;
-  width: 90%;
-  font-family: Nunito;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0px 10px 16px 10px;
-  position: absolute;
-  bottom: 67px;
-}
-
-.user-info h2 {
+.user-main-info h2 {
   font-family: Nunito;
   font-size: 24px;
   font-weight: bold;
@@ -31,21 +18,48 @@
   text-align: left;
 }
 
-.user-info h4 {
+.user-main-info h4 {
+  font-family: Nunito;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+}
+
+.user-foodmoods {
+  background-color: #F6BD60;
+  border-radius: 10px;
   font-family: Nunito;
   font-size: 16px;
   font-weight: bold;
-  color: #84A59D;
+  color: #ffffff;
   text-align: right;
 }
 
-.user-info h4 {
+.user-more-info {
+  background-color: rgba($color: #F7EDE2, $alpha: 0.6);
+  padding: 15px;
+  border-radius: 4px;
+  width: 90%;
+  font-family: Nunito;
+  font-size: 16px;
+  color: #84A59D;
+  font-weight: bold;
+  margin: 0px 10px 16px 10px;
+  position: absolute;
+  bottom: 67px;
+}
+
+.user-more-info p {
+  background-color: #84A59D;
+  border-radius: 10px;
   font-family: Nunito;
   font-size: 16px;
   font-weight: bold;
-  color: #84A59D;
+  color: #ffffff;
   text-align: right;
 }
+
 
 .like-refuse-buttons {
   width: 50%;
