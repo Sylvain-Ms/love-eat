@@ -11,9 +11,45 @@ export default class extends Controller {
     this.token = document.querySelector('meta[name=csrf-token]').content
   }
 
-  swipe(event) {
-    console.log(event)
-    /*  */
+  swipe(e) {
+    e.preventDefault()
+    const touchendX = e.changedTouches[0].clientX;
+    const diff = this.touchstartX - touchendX
+    if (diff > 0) {
+      this.element.remove()
+    }
+    else {
+      fetch(`/likes`, {
+      method: "POST",
+      body: JSON.stringify({
+        'user_liked_id': this.userLikedIdValue,
+        "authenticity_token": this.token
+      }),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then((data) => { this.#isMatchExist(data) })
+
+      /*  */
+    }
+  }
+
+  getData(e) {
+    this.touchstartX = e.changedTouches[0].clientX
+  }
+
+
+  animate(e) {
+    this.likeButtonTarget.style = 'display: none;'
+    this.refuseButtonTarget.style = 'display: none;'
+    const deplacement = e.changedTouches[0].clientX - this.touchstartX;
+    if (deplacement < 0) {
+      this.element.style = `transform: translateX(${deplacement}px);`
+    } else {
+      this.element.style = `transform: translateX(${deplacement}px);`
+    }
   }
 
   like(event) {
@@ -43,6 +79,7 @@ export default class extends Controller {
           this.#displayPartial(data)
         })
     }
+    this.element.remove()
   }
 
   #displayPartial(data) {
