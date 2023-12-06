@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.conversation = @conversation
 
     if @message.save!
-      redirect_to conversation_path(@conversation), notice: "✅"
+      redirect_to conversation_path(@conversation)
     else
       render :new, notice: "Un problème est survenu... Réessayez"
     end

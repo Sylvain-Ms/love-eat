@@ -2,6 +2,7 @@ require "open-uri"
 
 
 def create_users
+  
   elise = User.create!(distance: [10, 20, 30, 40].sample, first_name: "Elise", email: "Elise@gmail.com", password: "secret", last_name: "Dubois", birthdate: "06/05/1992", description: "Je n'aime pas trop faire connaissance par message, mais avec plaisir pour aller manger un bout !", gender: "Femme", preferences: "Homme", diet: "Flexitarian")
   file = OpenURI.open_uri("https://images.unsplash.com/photo-1542596768-5d1d21f1cf98")
   elise.pictures.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -142,5 +143,5 @@ def create_users
   file = OpenURI.open_uri("https://images.unsplash.com/photo-1520975954732-35dd22299614")
   noel.pictures.attach(io: file, filename: "nes.png", content_type: "image/png")
   noel.save
-
+  
 end

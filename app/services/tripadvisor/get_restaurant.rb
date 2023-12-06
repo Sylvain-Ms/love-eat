@@ -3,12 +3,12 @@ require 'net/http'
 require 'json'
 
 class Tripadvisor::GetRestaurant
-  def initialize(id)
-    @url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchRestaurants?locationId=#{id}&page=3")
+  def initialize(id, page)
+    @url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchRestaurants?locationId=#{id}&page=#{page}")
   end
 
-  def self.call(id)
-    new(id).perform
+  def self.call(id='187175', page='4')
+    new(id, page).perform
   end
 
   def perform
@@ -21,6 +21,5 @@ class Tripadvisor::GetRestaurant
 
     response = http.request(request)
     restaurants = JSON.parse(response.body.force_encoding("UTF-8"))['data']['data']
-
   end
 end
