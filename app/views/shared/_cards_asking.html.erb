@@ -1,4 +1,4 @@
-<div class="card_asking">
+<div class="card_asking" data-controller="suggestions">
 
 
   <%# <%= restaurant.image %>
@@ -15,9 +15,10 @@
     </div>
 
     <div class="les_btn">
-      <button class="btn_decline">Decline</button>
+      <button class="btn_decline" data-suggestions-target="btnDecline" data-action="click->suggestions#refuse">Decline</button>
 
-      <button class="btn_accepte">Accepte</button>
+      <button class="btn_accept" data-suggestions-target="btnAccept" data-action="click->suggestions#accept">Accepte</button>
+      <div data-suggestions-target='message'></div>
     </div>
   </div>
     <h4> <%#= restaurant.name %> </h4>
