@@ -31,5 +31,8 @@
 .info .prix {
   display: flex;
   justify-content: space-around;
-  padding-top: 20px;
+}
+.no_bottom {
+margin: 0px;
+padding: 0px;
 }
