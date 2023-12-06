@@ -1,19 +1,25 @@
-
-    <%# link_to user_path(user) do %>
 <div data-controller="swipe" data-swipe-user-liked-id-value="<%= user.id %>">
-  <div class="user-profile-card" data-action="touchstart->swipe#getData touchmove->swipe#animate touchend->swipe#swipe">
+  <div class="user-profile-card" >
     <div class="user-profile-picture">
       <% if user.try(:pictures).try(:attached?) %>
         <% user.pictures.first(1).each do |picture| %>
-          <%= cl_image_tag picture.key, data: { action: "click->swipe#show", swipe_target: "showButton" } %>
+          <%= cl_image_tag picture.key, data: { action: "click->swipe#swipe", swipe_target: "swipeButton" } %>
         <% end %>
       <% else %>
         <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= user.id %>" style="height: 100%; width: 100%;">
       <% end %>
     </div>
-    <div class="user-info">
-      <h2><%= user.first_name %> - <%= @user.age %></h2>
+    <div class="user-main-info">
+      <h2><%= user.first_name %></h2>
+      <h4><%= @user.age %> - <%= @user.gender %><h4>
+    </div>
+    <div class="user-foodmoods">
       <p><%= user.foodmoods.map(&:name).join(', ') %></p>
+    </div>
+    <div class="user-more-info">
+      <p><%= @user.description %></p>
+      <p><%= @user.diet %></p>
+      <p><%= @user.distance %></p>
     </div>
   </div>
   <div class="like-refuse-buttons">
@@ -22,4 +28,3 @@
   </div>
   <div data-swipe-target="foodmatch" id='foodmatch' data-controller='foodmatch' data-foodmatch-user-liked-id-value="<%= user.id %>"></div>
 </div>
-<%# end %>

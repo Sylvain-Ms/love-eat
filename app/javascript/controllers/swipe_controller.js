@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
-  static targets = ["refuseButton", "likeButton", "foodmatch"]
+  static targets = ["showButton", "refuseButton", "likeButton", "foodmatch"]
   static values = {
     userLikedId: Number
   }
@@ -11,6 +11,11 @@ export default class extends Controller {
     this.token = document.querySelector('meta[name=csrf-token]').content
   }
 
+  show(event) {
+    console.log(event)
+    /*  */
+  }
+  
   swipe(e) {
     e.preventDefault()
     const touchendX = e.changedTouches[0].clientX;
@@ -31,8 +36,6 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => { this.#isMatchExist(data) })
-
-      /*  */
     }
   }
 
@@ -78,6 +81,8 @@ export default class extends Controller {
         .then((data) => {
           this.#displayPartial(data)
         })
+    } else {
+      this.element.remove();
     }
     this.element.remove()
   }
