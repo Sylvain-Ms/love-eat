@@ -29,8 +29,8 @@ class SuggestionsController < ApplicationController
   def update
     @suggestion = Suggestion.find(params[:id])
 
-    if @suggestion.update(suggestion_params)
-      redirect_to @suggestion
+    if @suggestion.update(status: params[:status])
+      render json: { updated: :ok }
     else
       render :edit
     end

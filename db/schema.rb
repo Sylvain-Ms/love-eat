@@ -118,7 +118,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_085935) do
     t.datetime "hour"
     t.bigint "restaurant_id", null: false
     t.bigint "user_id", null: false
-    t.string "status"
+    t.string "status", default: "pending"
     t.bigint "user_liked_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
