@@ -6,7 +6,6 @@
   </div>
   <ul class="menu__box" data-menu-toggle-target="menu">
     <h2 style="text-align: center;">Propose un restaurant que vous avez en commun</h2>
-    <p><%= render "shared/suggestion_cards" %></p>
     <div class="block_card_scroll">
       <% Restaurant.common(user, user_liked).each do |restaurant| %>
         <li><%= render "shared/suggestion_cards", restaurant: restaurant %></li>
