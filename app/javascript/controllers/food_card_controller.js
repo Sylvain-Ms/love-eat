@@ -3,6 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="food-card"
 export default class extends Controller {
   static targets = ["card"]
+  static values = {
+    category: String
+  }
 
   connect() {
     this.list = []
@@ -33,7 +36,7 @@ export default class extends Controller {
         },
         body: JSON.stringify({
           'restaurant_ids': this.list,
-          'foodmood': { 'name': "japanese" },
+          'foodmood': { 'name': this.categoryValue },
           'authenticity_token': this.token
         })
        })
