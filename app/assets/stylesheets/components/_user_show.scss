@@ -4,13 +4,21 @@
   background-position: center;
   background-size: cover;
   position: absolute;
-  margin: auto;
+  margin: 0 auto;
   display: block;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.user-main-info h2 {
+.user-main-info-show {
+  background-color: rgba($color: #F7EDE2, $alpha: 0.6);
+  padding: 8px 16px;
+  margin: 10px 0px;
+  border-radius: 4px;
+}
+
+.user-main-info-show h2 {
+  margin-top: 12px;
   font-family: Nunito;
   font-size: 24px;
   font-weight: bold;
@@ -18,53 +26,52 @@
   text-align: left;
 }
 
-.user-main-info h4 {
+.user-main-info-show h4 {
   font-family: Nunito;
   font-size: 20px;
   font-weight: bold;
-  color: black;
+  color: #84A59D;
   text-align: left;
 }
 
-.user-foodmoods {
+.user-description-show {
+  font-family: Nunito;
+  padding: 4px 10px;
+  font-size: 16px;
+  color: black;
+  font-style: italic;
+  bottom: 67px;
+}
+
+.user-foodmoods-show p {
   background-color: #F6BD60;
   border-radius: 10px;
   font-family: Nunito;
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  text-align: right;
+  padding: 4px 8px;
+  width: fit-content;
 }
 
-.user-more-info {
-  background-color: rgba($color: #F7EDE2, $alpha: 0.6);
-  padding: 15px;
-  border-radius: 4px;
-  width: 90%;
-  font-family: Nunito;
-  font-size: 16px;
-  color: #84A59D;
-  font-weight: bold;
-  margin: 0px 10px 16px 10px;
-  position: absolute;
-  bottom: 67px;
-}
 
-.user-more-info p {
+.user-diet-show p {
+  margin-top: 16px;
   background-color: #84A59D;
   border-radius: 10px;
   font-family: Nunito;
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  text-align: right;
+  padding: 4px 8px;
+  width: fit-content;
 }
 
 
-.like-refuse-buttons {
+.like-refuse-buttons-show {
   width: 50%;
   position: absolute;
-  bottom: 10%;
+  bottom: 10px;
   left: 50%;
   display: flex;
   justify-content: space-around;
