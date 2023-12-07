@@ -22,6 +22,6 @@ class User < ApplicationRecord
   def age
     today = Date.today
     birthdate = self.birthdate
-    return (today - birthdate.to_date).to_i / 365
+    return (today.try(:-, birthdate.try(:to_date))).try(:to_i) / 365
   end
 end

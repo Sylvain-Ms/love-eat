@@ -15,7 +15,7 @@ export default class extends Controller {
     console.log(event)
     /*  */
   }
-  
+
   swipe(e) {
     e.preventDefault()
     const touchendX = e.changedTouches[0].clientX;
@@ -84,7 +84,6 @@ export default class extends Controller {
     } else {
       this.element.remove();
     }
-    this.element.remove()
   }
 
   #displayPartial(data) {
