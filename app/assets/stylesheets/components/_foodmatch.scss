@@ -37,11 +37,19 @@
 }
 
 .animate {
-  animation: 2s ease-in appear;
+  animation: .5s ease-in appear;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.animate2 {
+  animation: .5s ease-in appear2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 @keyframes appear {
@@ -56,5 +64,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes appear2 {
+  from {
+    position: fixed;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  to   {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
