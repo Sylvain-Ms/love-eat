@@ -1,14 +1,13 @@
-<div class="card_asking" data-controller="suggestions" data-suggestions-suggestion-id-value=1>
+<div class="card_asking" data-controller="suggestions" data-suggestions-suggestion-id-value="<%= suggestion.id %>">
 
   <div class="info2">
 
-    <%= restaurant.image_url, class: "img_sug"%>
+    <%= image_tag restaurant.image_url, class: "img_sug"%>
     <h4 class="cardTitle"><%= restaurant.name %></h4>
     <p><%= restaurant.address %></p>
 
     <div class="prix2">
       <p><%= restaurant.price %></p>
-      <p><%= restaurant.review %></p>
     </div>
 
     <div class="les_btn">

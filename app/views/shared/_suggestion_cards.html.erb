@@ -1,4 +1,4 @@
-<div class="suggestion_card" data-controller = "send-card" data-send-card-target= "card" data-action="click -> send-card#open">
+<div class="suggestion_card" data-controller="send-card" data-send-card-target="card" data-action="click->send-card#get" data-send-card-conversation-id-value='<%= @conversation.id %>' data-send-card-restaurant-id-value="<%= restaurant.id %>">
 
   <div>
     <%= image_tag restaurant.image_url.gsub(/\?w=\d*&h=\d*&s=\d*/, ''), class: "imgs" %>

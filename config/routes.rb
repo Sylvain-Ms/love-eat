@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "/exist", to: "conversations#exist"
   resources :conversations, only: [:index, :create, :show, :destroy] do
     resources :messages, only: [:new, :create]
+    get '/get_asking_card', to: "messages#get_asking_card"
   end
 
   resources :likes, only: [:create]

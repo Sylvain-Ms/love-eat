@@ -8,6 +8,7 @@ export default class extends Controller {
   }
   connect() {
     this.token = document.querySelector('meta[name=csrf-token]').content
+    console.log(this.suggestionIdValue)
   }
 
   accept() {
@@ -27,7 +28,7 @@ export default class extends Controller {
     fetch(`/restaurants/1/suggestions/${this.suggestionIdValue}`, {
       method: "PATCH",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         'Accept': 'application/json'
       },
       body: JSON.stringify({
