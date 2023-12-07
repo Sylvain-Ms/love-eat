@@ -1,9 +1,13 @@
-<div>
-  <div class="message-container">
+<div data-controller="conversation-subscription"
+     data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
+     data-conversation-subscription-current-user-id-value="<%= current_user.id %>"
+     style='height: 80vh;'>
+  <div class="message-container"
+       data-conversation-subscription-target="messages">
     <% @messages.each do |message| %>
       <%= render "shared/chat_bubble", message: message %>
     <% end %>
   </div>
   <%= render "shared/chat_bar", conversation: @conversation, message: @message %>
 </div>
-  <%= render "shared/suggestion_restaurants", user: @conversation.user, user_liked: @conversation.user_liked %>
+<%= render "shared/suggestion_restaurants", user: @conversation.user, user_liked: @conversation.user_liked %>

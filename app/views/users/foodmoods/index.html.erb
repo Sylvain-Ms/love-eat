@@ -1,5 +1,7 @@
 <h2 class="title_h2"> Quel est ton foodmood ?</h2>
 
 <% @foodmoods.each do |foodmood| %>
-  <%= render "shared/foodmood_card", foodmood: foodmood %>
+  <%= link_to foodmoods_restaurants_path(category: foodmood) do %>
+    <%= render "shared/foodmood_card", foodmood: foodmood %>
+  <% end %>
 <% end %>

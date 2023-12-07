@@ -7,23 +7,23 @@ export default class extends Controller {
     userLikedId: Number
   }
   connect() {
-    console.log(this.foodmatchTarget)
     this.token = document.querySelector('meta[name=csrf-token]').content
   }
 
-  show(event) {
-    console.log(event)
-    /*  */
+  show() {
+    window.location.href = '/users/' + this.userLikedIdValue;
   }
 
   swipe(e) {
-    e.preventDefault()
     const touchendX = e.changedTouches[0].clientX;
     const diff = this.touchstartX - touchendX
-    if (diff > 0) {
+    if (diff === 0) {
+      this.show()
+    }
+    if (diff > 10) {
       this.element.remove()
     }
-    else {
+    else if (diff < -10) {
       fetch(`/likes`, {
       method: "POST",
       body: JSON.stringify({
@@ -35,7 +35,7 @@ export default class extends Controller {
       }
     })
       .then(response => response.json())
-      .then((data) => { this.#isMatchExist(data) })
+      .then((data) => { this.#isMatchExist(data, true) })
     }
   }
 
@@ -47,16 +47,12 @@ export default class extends Controller {
   animate(e) {
     this.likeButtonTarget.style = 'display: none;'
     this.refuseButtonTarget.style = 'display: none;'
-    const deplacement = e.changedTouches[0].clientX - this.touchstartX;
-    if (deplacement < 0) {
-      this.element.style = `transform: translateX(${deplacement}px);`
-    } else {
-      this.element.style = `transform: translateX(${deplacement}px);`
-    }
+    this.touchendX = e.changedTouches[0].clientX
+    const deplacement = this.touchendX - this.touchstartX;
+    this.element.style = `transform: translateX(${deplacement}px);`
   }
 
-  like(event) {
-    console.log(event)
+  like(_event) {
     fetch(`/likes`, {
       method: "POST",
       body: JSON.stringify({
@@ -71,29 +67,36 @@ export default class extends Controller {
       .then((data) => { this.#isMatchExist(data) })
   }
 
-  #isMatchExist(data) { // { item: Like, match: true | false | null, message: "Item created" }
+  #isMatchExist(data, deplacement=false) { // { item: Like, match: true | false | null, message: "Item created" }
     if (data.match) {
+      if (deplacement) {
+        const deplacement = this.touchstartX - this.touchstartX;
+        this.element.style = `transform: translateX(${deplacement}px);`
+      }
       fetch("/match?user_liked_id=" + this.userLikedIdValue + "&authorization_token=" + this.token, {
         method: "GET",
         headers: { "Accept": "text/plain" }
       })
         .then(response => response.text())
         .then((data) => {
-          this.#displayPartial(data)
+          if (deplacement) {
+            this.#displayPartial(data, "animate2")
+          } else {
+            this.#displayPartial(data)
+          }
         })
     } else {
       this.element.remove();
     }
   }
 
-  #displayPartial(data) {
+  #displayPartial(data, className='animate') {
     this.foodmatchTarget.insertAdjacentHTML('beforeend', data)
-    this.foodmatchTarget.style.height = '80%'
-    this.foodmatchTarget.classList.add('animate')
+    this.foodmatchTarget.style.height = '80vh'
+    this.foodmatchTarget.classList.add(className)
   }
 
-  refuse(event) {
-    console.log(event)
+  refuse(_event) {
     this.element.remove()
   }
 }

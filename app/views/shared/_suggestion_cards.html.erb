@@ -1,20 +1,16 @@
-<div class="suggestion_card">
+<div class="suggestion_card" data-controller = "send-card" data-send-card-target= "card" data-action="click -> send-card#open">
 
   <div>
-    <%# <%= restaurant.image %>
-   <%= image_tag ("img restaurant.webp"), class: "imgs"%>
+    <%= restaurant.image, class: "imgs" %>
   </div>
 
   <div class="info">
-    <h4 class="cardTitle">Restaurant La Pagnolade</h4>
-    <p class='no_bottom'>12 rue des croustibatte</p>
+    <h4 class="cardTitle"><%= restaurant.name %></h4>
+    <p class='no_bottom'><%= restaurant.address %></p>
     <div class="prix">
-      <p class='no_bottom'>$$$$$</p>
-      <p class='no_bottom'>*****</p>
+      <p class='no_bottom'><%= restaurant.price %></p>
+      <p class='no_bottom'><%= restaurant.review %></p>
     </div>
   </div>
 
 </div>
- <h2><%#= restaurant.name %></h2>
-    <%#= restaurant.price %>
-    <%#= restaurant.review %>
