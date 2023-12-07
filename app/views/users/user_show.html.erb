@@ -3,7 +3,7 @@
     <div class="user-profile-picture">
       <% if user.try(:pictures).try(:attached?) %>
         <% user.pictures.first(1).each do |picture| %>
-          <%= cl_image_tag picture.key, data: { action: "click->swipe#swipe", swipe_target: "swipeButton" } %>
+          <%= cl_image_tag picture.key, data: { action: "click->swipe#swipe", swipe_target: "swipeButton" }, style="height: 372px; width: 600px;" %>
         <% end %>
       <% else %>
         <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= user.id %>" style="height: 100%; width: 100%;">
