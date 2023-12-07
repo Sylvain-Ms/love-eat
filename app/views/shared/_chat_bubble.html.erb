@@ -1,6 +1,5 @@
-<div class="sender-position">
-  <div class="bubble sender">
+<div class="<%= message.user_id == current_user.id ? 'sender-position' : 'receiver-position' %>" data-conversation-subscription-user-id-value="<%= message.user_id %>">
+  <div class="bubble <%= message.user_id == current_user.id ? 'sender' : '' %>">
     <%= message.content %>
-    <% #@user.profil_picture %>
   </div>
 </div>

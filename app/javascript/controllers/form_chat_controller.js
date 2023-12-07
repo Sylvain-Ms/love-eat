@@ -6,6 +6,7 @@ export default class extends Controller {
   }
 
   send(e) {
-    this.element.submit()
+    e.preventDefault();
+    this.element.submit();
   }
 }

@@ -14,11 +14,16 @@
   display: flex;
   justify-content: end;
 }
+
+.receiver-position {
+  display: flex;
+  justify-content: start;
+}
+
 .sender{
   margin: 10px 20px;
   background-color: #F28482;
 }
-
 
 .message-container {
   width: -webkit-fill-available;
