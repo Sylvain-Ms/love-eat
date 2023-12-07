@@ -5,14 +5,14 @@
     <div class="user-profile-picture">
       <% if user.try(:pictures).try(:attached?) %>
         <% user.pictures.first(1).each do |picture| %>
-          <%= cl_image_tag picture.key, data: { action: "click->swipe#show", swipe_target: "showButton" } %>
+          <%= cl_image_tag picture.key, data: { action: "click->swipe#show", swipe_target: "showButton" }, style: "height: 100%; width: 100%;" %>
         <% end %>
       <% else %>
         <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= user.id %>" style="height: 100%; width: 100%;">
       <% end %>
     </div>
     <div class="user-info">
-      <h2><%= user.first_name %> - <%= @user.age %></h2>
+      <h2><%= user.first_name %> - <%= user.age %></h2>
       <p><%= user.foodmoods.map(&:name).join(', ') %></p>
     </div>
   </div>
