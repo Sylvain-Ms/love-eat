@@ -1,17 +1,14 @@
 <div class="card_asking" data-controller="suggestions" data-suggestions-suggestion-id-value=1>
 
-
-  <%# <%= restaurant.image %>
-
-
   <div class="info2">
-    <%= image_tag ("img restaurant.webp"), class: "img_sug"%>
-    <h4 class="cardTitle">Restaurant La Pagnolade</h4>
-    <p>12 rue des croustibatte</p>
+
+    <%= restaurant.image_url, class: "img_sug"%>
+    <h4 class="cardTitle"><%= restaurant.name %></h4>
+    <p><%= restaurant.address %></p>
 
     <div class="prix2">
-      <p>$$$$$</p>
-      <p>*****</p>
+      <p><%= restaurant.price %></p>
+      <p><%= restaurant.review %></p>
     </div>
 
     <div class="les_btn">
@@ -21,10 +18,10 @@
       <div data-suggestions-target='message'></div>
     </div>
   </div>
-    <h4> <%#= restaurant.name %> </h4>
-    <%#= restaurant.category %>
-    <%#= restaurant.price %>
-    <%#= restaurant.review %>
+
+
+
+
   </div>
 
 </div>

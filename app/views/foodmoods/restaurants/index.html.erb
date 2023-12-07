@@ -1,6 +1,6 @@
 <h2 class='title_h2'>Restautants</h2>
 
-<div class="container" data-controller="food-card">
+<div class="container" data-controller="food-card" data-food-card-category-value="<%= params[:category] %>">
   <div class="block_card_scroll">
     <% @restaurants.each do |restaurant| %>
       <%= render "shared/cards_restaurants", restaurant: restaurant %>

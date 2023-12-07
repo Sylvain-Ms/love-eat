@@ -7,8 +7,7 @@ class Foodmoods::RestaurantsController < ApplicationController
   end
 
   def create
-    @foodmood = Foodmood.new(foodmood_params)
-    @foodmood.user = current_user
+    @foodmood = Foodmood.find_or_create_by(name: params[:foodmood][:name], user: current_user)
     @foodmood.restaurants = Restaurant.find(params[:restaurant_ids])
 
     if @foodmood.save!

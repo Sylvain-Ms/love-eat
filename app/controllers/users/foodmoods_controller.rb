@@ -1,7 +1,7 @@
 class Users::FoodmoodsController < ApplicationController
 
   def index
-    @foodmoods = Foodmood.all
+    @foodmoods = Restaurant.pluck(:category).uniq
   end
 
   def create
