@@ -1,4 +1,7 @@
 <%= simple_form_for [conversation, message], html: { class: 'form_chat', data: { action: "turbo:submit-end->conversation-subscription#resetForm", conversation_subscription_target: 'form' }, class: "d-flex" } do |f| %>
   <%= f.input :content, label: false, input_html: { class: "input_content", data: { conversation_subscription_target: "input" } } %>
   <%= image_tag 'send.png', class: 'button-nul', data: { action: "click->conversation-subscription#send" } %>
+  <div data-action="click->menu-toggle#open">
+    <%= image_tag 'Bowl.svg', class: "menu__btn", style: "position: absolute; bottom: 104px; left: 8%;", data: { menu_toggle_target: "button" } %>
+  </div>
 <% end %>

@@ -1,11 +1,9 @@
 <div class="hamburger-menu" data-controller="menu-toggle">
   <input class="d-none" id="menu__toggle" type="checkbox"  />
 
-  <div data-action="click->menu-toggle#open">
-    <%= image_tag 'restaurant.png', class: "menu__btn", style: "position: absolute; bottom: 104px; left: 8%;", data: { menu_toggle_target: "button" } %>
-  </div>
+
   <ul class="menu__box" data-menu-toggle-target="menu">
-    <h2 style="text-align: center;">Propose un restaurant que vous avez en commun</h2>
+    <h2 style="text-align: center;">Proposez un restaurant 🍴</h2>
     <div class="block_card_scroll">
       <% Restaurant.common(user, user_liked).each do |restaurant| %>
         <li><%= render "shared/suggestion_cards", restaurant: restaurant %></li>
