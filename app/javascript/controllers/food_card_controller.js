@@ -41,7 +41,7 @@ export default class extends Controller {
         })
        })
         .then(response => response.json())
-        .then((data) => console.log(data))
+        .then((data) => window.location.href = "/")
 }
 
 prolonge(e) {
