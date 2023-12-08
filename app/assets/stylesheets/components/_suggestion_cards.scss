@@ -9,7 +9,7 @@
   align-items: center;
   background-color: #F7EDE2;
   margin-top: 10px;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 5px;
   height: 110px;
 }
@@ -26,6 +26,7 @@
   padding-left: 2px;
   padding-top: 15px;
   text-align: center;
+  width: 50%;
 }
 
 .info .prix {
@@ -35,4 +36,8 @@
 .no_bottom {
 margin: 0px;
 padding: 0px;
+}
+
+#new_message {
+  align-items: center;
 }

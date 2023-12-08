@@ -1,7 +1,7 @@
-<div class="suggestion_card" data-controller = "send-card" data-send-card-target= "card" data-action="click -> send-card#open">
+<div class="suggestion_card" data-controller="send-card" data-send-card-target="card" data-action="click->send-card#get" data-send-card-conversation-id-value='<%= @conversation.id %>' data-send-card-restaurant-id-value="<%= restaurant.id %>">
 
   <div>
-    <%= restaurant.image, class: "imgs" %>
+    <%= image_tag restaurant.image_url.gsub(/\?w=\d*&h=\d*&s=\d*/, ''), class: "imgs" %>
   </div>
 
   <div class="info">
@@ -9,7 +9,6 @@
     <p class='no_bottom'><%= restaurant.address %></p>
     <div class="prix">
       <p class='no_bottom'><%= restaurant.price %></p>
-      <p class='no_bottom'><%= restaurant.review %></p>
     </div>
   </div>
 
