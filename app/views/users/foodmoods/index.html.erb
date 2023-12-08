@@ -1,7 +1,9 @@
 <h2 class="title_h2"> Quel est ton foodmood ?</h2>
 
-<% @foodmoods.each do |foodmood| %>
-  <%= link_to foodmoods_restaurants_path(category: foodmood) do %>
-    <%= render "shared/foodmood_card", foodmood: foodmood %>
+<div class="block_card_scroll_foodmood">
+  <% @foodmoods.each do |foodmood| %>
+    <%= link_to foodmoods_restaurants_path(category: foodmood), style: "text-decoration: none; color: black;" do %>
+      <%= render "shared/foodmood_card", foodmood: foodmood %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

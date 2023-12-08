@@ -30,11 +30,29 @@
   padding-left: 8px;
 }
 
+
+
 .block_card_scroll {
   overflow-y: auto;
-  max-height: calc(100% - 55px);
-  margin-bottom: 45px;
+  height: calc(100% - 110px);
+  width: 100%;
+  margin-bottom: 50px;
 }
+
+.block_card_scroll_show {
+  overflow-y: auto;
+  height: calc(100vh - 110px);
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.block_card_scroll_foodmood {
+  overflow-y: auto;
+  height: calc(100vh - 250px);
+  width: 100%;
+  margin-bottom: 50px;
+}
+
 .btn_fixed {
   background-color: #84A59D;
   border-radius: 10px;

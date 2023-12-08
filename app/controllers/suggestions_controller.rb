@@ -28,7 +28,6 @@ class SuggestionsController < ApplicationController
 
   def update
     @suggestion = Suggestion.find(params[:id])
-
     if @suggestion.update(status: params[:status])
       render json: { updated: :ok }
     else

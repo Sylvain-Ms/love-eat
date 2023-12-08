@@ -1,31 +1,38 @@
+
 <div data-controller="swipe" data-swipe-user-liked-id-value="<%= @user.id %>" style="position: relative; min-height: 115vh">
-  <div class="user-profile-card" >
-    <div class="user-profile-picture">
-      <% if @user.try(:pictures).try(:attached?) %>
-        <% @user.pictures.first(1).each do |picture| %>
-          <%= cl_image_tag picture.key, raw_transformation: "c_fill,w_372,h_600,g_face", data: { action: "click->swipe#swipe", swipe_target: "swipeButton" }, style: "height: 100%; width: 100%;" %>
+  <div class='block_card_scroll'>
+    <div class="user-profile-card" >
+      <div class="user-profile-picture">
+        <% if @user.try(:pictures).try(:attached?) %>
+          <% @user.pictures.each_with_index do |picture, index| %>
+            <% if index != 0 %>
+              <%= cl_image_tag picture.key, raw_transformation: "c_fill,w_351,h_600,g_face", data: { action: "click->swipe#next", swipe_target: "pictures" }, style: "height: 100%; width: 100%; display: none;", id: index %>
+            <% else %>
+              <%= cl_image_tag picture.key, raw_transformation: "c_fill,w_351,h_600,g_face", data: { action: "click->swipe#next", swipe_target: "pictures" }, style: "height: 100%; width: 100%;", id: index %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= @user.id %>" style="height: 100%; width: 100%;">
         <% end %>
-      <% else %>
-        <img src="https://source.unsplash.com/random/372x600/?portrait&seed=<%= @user.id %>" style="height: 100%; width: 100%;">
-      <% end %>
-    </div>
-    <div class="user-main-info-show">
-      <h2><%= @user.first_name %></h2>
-      <h4><%= @user.age %> ans - <%= @user.gender %><h4>
-    </div>
-    <div class="user-description-show">
-      <p><%= @user.description %></p>
-    </div>
-    <div class="user-foodmoods-show">
-      <p><%= @user.foodmoods.map(&:name).join(', ') %></p>
-    </div>
-    <div class="user-diet-show">
-      <p><%= @user.diet %></p>
+      </div>
+      <div class="user-main-info-show">
+        <h2><%= @user.first_name %></h2>
+        <h4><%= @user.age %> ans - <%= @user.gender %><h4>
+      </div>
+      <div class="user-description-show">
+        <p><%= @user.description %></p>
+      </div>
+      <div class="user-foodmoods-show">
+        <p><%= @user.foodmoods.map(&:name).join(', ') %></p>
+      </div>
+      <div class="user-diet-show">
+        <p><%= @user.diet %></p>
+      </div>
+      <div class="like-refuse-buttons-show">
+        <%= image_tag "cross.svg", data: { action: "click->swipe#refuse", swipe_target: "refuseButton" } %>
+        <%= image_tag "heart.svg", data: { action: "click->swipe#like", swipe_target: "likeButton" } %>
+      </div>
+      <div data-swipe-target="foodmatch" id='foodmatch' data-controller='foodmatch' data-foodmatch-user-liked-id-value="<%= @user.id %>"></div>
     </div>
   </div>
-  <div class="like-refuse-buttons-show">
-    <%= image_tag "cross.svg", data: { action: "click->swipe#refuse", swipe_target: "refuseButton" } %>
-    <%= image_tag "heart.svg", data: { action: "click->swipe#like", swipe_target: "likeButton" } %>
-  </div>
-  <div data-swipe-target="foodmatch" id='foodmatch' data-controller='foodmatch' data-foodmatch-user-liked-id-value="<%= @user.id %>"></div>
 </div>

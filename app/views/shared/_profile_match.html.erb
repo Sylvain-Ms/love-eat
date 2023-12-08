@@ -1,15 +1,16 @@
 <div class="profile_match" data-controller="get-conversation" data-get-conversation-target="card" data-action="touchstart->get-conversation#getData touchmove->get-conversation#animate touchend->get-conversation#swipe" data-get-conversation-user-liked-id-value="<%= current_user.id == match.user_liked_id ? match.user_id : match.user_liked_id %>">
-  <% if match.user_liked.pictures.attached? %>
-    <%= cl_image_tag match.user_liked.pictures.first.key, raw_transformation: "c_fill,w_372,h_600,g_face", class: "picture" %>
+  <% user = current_user.id == match.user_liked_id ? match.user : match.user_liked %>
+  <% if user.pictures.attached? %>
+    <%= cl_image_tag user.pictures.first.key, raw_transformation: "c_fill,w_372,h_600,g_face", class: "avatar" %>
   <% else %>
-    <img src="https://source.unsplash.com/random/60x60/?portrait&seed=<%= match.user_liked_id %>" class='avatar'>
+    <img src="https://source.unsplash.com/random/60x60/?portrait&seed=<%= user_id %>" class='avatar'>
   <% end %>
-  <div class="profile_match_container">
-    <h2><strong><%= match.user_liked.first_name %>, <%= match.user_liked.age %>ans</strong></h2>
+  <div class="profile_match_container" style='width: 50%;'>
+    <h2><strong><%= user.first_name %>, <%= user.age %>ans</strong></h2>
     <p class="details"></p>
-    <p><strong>Description:</strong> <%= match.user_liked.description %></p>
+    <p><strong>Description:</strong> <%= user.description %></p>
     <div class='tag_list'>
-      <% match.user_liked.foodmoods.each do |foodmood| %>
+      <% user.foodmoods.each do |foodmood| %>
         <div>
           <p><%= foodmood.name %></p>
         </div>

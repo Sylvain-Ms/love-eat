@@ -9,7 +9,7 @@
       <%= f.input :gender, collection: ['Femme', 'Homme'], input_html: { class: "gender"} %>
       <%= f.input :preferences, collection: ['Femme', 'Homme'], input_html: { class: "preferences"} %>
       <%= f.input :diet, input_html: { class: "diet"} %>
-      <%= f.input :pictures, as: :file, input_html: { multiple: true }, input_html: { class: "pictures"} %>
+      <%= f.input :pictures, as: :file, input_html: { multiple: true, class: "pictures"} %>
     </div>
     <%= f.button :submit, class: 'btn_fixed' %>
   <% end %>

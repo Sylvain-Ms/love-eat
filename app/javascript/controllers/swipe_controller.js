@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
-  static targets = ["showButton", "refuseButton", "likeButton", "foodmatch"]
+  static targets = ["showButton", "refuseButton", "likeButton", "foodmatch", "pictures"]
   static values = {
     userLikedId: Number
   }
@@ -87,6 +87,20 @@ export default class extends Controller {
         })
     } else {
       this.element.remove();
+    }
+  }
+
+  next(e) {
+    let index = parseInt(e.currentTarget.id)
+    if (e.clientX > 195) {
+      this.picturesTargets[index].style = 'display: none';
+      this.picturesTargets[(index + 1) % this.picturesTargets.length].style = 'display: block'
+    } else {
+      this.picturesTargets[index].style = 'display: none';
+      if (index === 0) {
+        index = this.picturesTargets.length
+      }
+      this.picturesTargets[index - 1].style = 'display: block'
     }
   }
 

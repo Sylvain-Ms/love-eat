@@ -1,7 +1,7 @@
 <div data-controller="conversation-subscription"
      data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
      data-conversation-subscription-current-user-id-value="<%= current_user.id %>"
-     style='height: 80vh;'>
+     style='height: fit-content;'>
   <div class="message-container"
        data-conversation-subscription-target="messages">
     <% @messages.each do |message| %>
